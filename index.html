@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>كتابي AI — مساعدك الدراسي للمنهاج السوري على تيليغرام</title>
+    <meta
+      name="description"
+      content="بوت كتابي AI على تيليغرام للإجابة عن أسئلة المنهاج السوري من الكتب الرسمية مع ذكر اسم الكتاب وأرقام الصفحات، بالإضافة إلى الوضع العام."
+    />
+
+    <link rel="icon" type="image/jpeg" href="assets/bot-image.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="كتابي AI | Kitabi AI" />
+    <meta
+      property="og:description"
+      content="مساعدك الدراسي للمنهاج السوري على تيليغرام — إجابات موثّقة بالكتاب والصفحة."
+    />
+    <meta property="og:image" content="assets/bot-image.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content" data-i18n="skipLink">تجاوز إلى المحتوى</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top">
+          <img
+            class="brand-avatar"
+            src="assets/bot-image.jpg"
+            alt="Kitabi AI"
+            width="36"
+            height="36"
+          />
+          <span data-i18n="brandName">كتابي AI</span>
+        </a>
+
+        <nav class="header-nav" aria-label="Primary navigation">
+          <ul class="nav-links">
+            <li><a href="#about" data-i18n="navAbout">عن البوت</a></li>
+            <li><a href="#features" data-i18n="navFeatures">المميزات</a></li>
+            <li><a href="#grades" data-i18n="navGrades">الصفوف</a></li>
+            <li><a href="#preview" data-i18n="navPreview">من داخل البوت</a></li>
+            <li><a href="#links" data-i18n="navLinks">الروابط</a></li>
+          </ul>
+
+          <button
+            id="lang-toggle"
+            class="lang-btn"
+            type="button"
+            lang="en"
+            aria-label="Switch website language to English"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M3 12h18" />
+              <path d="M12 3a14 14 0 0 1 0 18" />
+              <path d="M12 3a14 14 0 0 0 0 18" />
+            </svg>
+            <span id="lang-toggle-label">English</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section id="top" class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="hero-kicker" data-i18n="heroKicker">بوت تيليغرام للمنهاج السوري</p>
+            <h1 class="hero-title" data-i18n="heroTitle">
+              كتابي AI — مساعدك الدراسي من قلب الكتب المدرسية
+            </h1>
+            <p class="hero-subtitle" data-i18n="heroSubtitle">
+              اسأل أي سؤال في المنهاج السوري واحصل على شرح واضح ومستند إلى الكتب الرسمية مع ذكر اسم الكتاب وأرقام الصفحات، أو استخدم الوضع العام للأسئلة المتنوعة مباشرة عبر تيليغرام.
+            </p>
+
+            <div class="hero-actions">
+              <a
+                class="btn btn-primary"
+                href="https://t.me/Kitabi_ai_bot"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M21.94 4.66a1.5 1.5 0 0 0-1.56-.22L2.88 11.7a1.5 1.5 0 0 0 .1 2.81l4.46 1.49 1.72 5.18a1.25 1.25 0 0 0 2.13.44l2.54-2.77 4.41 3.24a1.5 1.5 0 0 0 2.36-.91l2.84-14.9a1.5 1.5 0 0 0-.5-1.62ZM9.9 15.2l-.65 3.1-.96-2.89 9.57-7.17-7.96 6.96Z"
+                  />
+                </svg>
+                <span data-i18n="heroPrimaryCta">افتح البوت على تيليغرام</span>
+              </a>
+
+              <a
+                class="btn btn-secondary"
+                href="https://t.me/Kitabi_ai"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span data-i18n="heroSecondaryCta">قناة كتابي على تيليغرام</span>
+              </a>
+            </div>
+
+            <ul class="hero-facts">
+              <li data-i18n="factGrades">15 صفاً ومساراً دراسياً</li>
+              <li data-i18n="factBooks">194 كتاباً مدرسياً رسمياً</li>
+              <li data-i18n="factPages">24,156 صفحة مفهرسة</li>
+            </ul>
+          </div>
+
+          <div class="hero-media">
+            <img
+              src="assets/bot-image.jpg"
+              alt="شعار كتابي AI مع كتب الرياضيات والعلوم والعربي"
+              data-i18n-alt="heroImageAlt"
+              width="640"
+              height="640"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section section-alt">
+        <div class="container">
+          <h2 class="section-title" data-i18n="aboutTitle">عن بوت كتابي AI</h2>
+          <div class="prose">
+            <p data-i18n="aboutP1">
+              صُمّم كتابي AI ليكون رفيقاً دراسياً سريعاً لطلاب المدارس في سوريا داخل تطبيق تيليغرام نفسه، دون الحاجة لتثبيت تطبيقات إضافية أو البحث الطويل بين ملفات PDF.
+            </p>
+            <p data-i18n="aboutP2">
+              عند اختيار صفك الدراسي عبر الأمر /start، يبحث البوت في صفحات الكتب الرسمية الخاصة بصفك فقط، ويقدّم لك الإجابة مع توثيق اسم الكتاب وأرقام الصفحات المرجعية في نهاية الرد.
+            </p>
+            <p data-i18n="aboutP3">
+              كما يوفّر البوت «الوضع العام» للأسئلة العامة والمساعدة الدراسية الأوسع، ويدعم العمل داخل المجموعات الدراسية المصرّح بها عند الإشارة إليه أو الرد على رسائله.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="container">
+          <h2 class="section-title" data-i18n="featuresTitle">ما الذي يقدّمه البوت؟</h2>
+          <p class="section-intro" data-i18n="featuresIntro">
+            تجربة عملية داخل تيليغرام تركّز على الدقة والالتزام بمحتوى المنهاج.
+          </p>
+
+          <div class="cards-grid">
+            <article class="card">
+              <h3 class="card-title" data-i18n="f1Title">توثيق بالكتاب والصفحة</h3>
+              <p class="card-text" data-i18n="f1Text">
+                تعتمد إجابات الصفوف الدراسية على نصوص الكتب الرسمية مع إظهار اسم الكتاب وأرقام الصفحات في أسفل الإجابة.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title" data-i18n="f2Title">تغطية شاملة للمنهاج</h3>
+              <p class="card-text" data-i18n="f2Text">
+                يضم 15 صفاً ومساراً دراسياً من الصف الأول حتى البكالوريا بفرعيها العلمي والأدبي، بإجمالي 194 كتاباً.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title" data-i18n="f3Title">وضع عام مرن</h3>
+              <p class="card-text" data-i18n="f3Text">
+                إلى جانب المنهاج المدرسي، يمكنك التبديل إلى الوضع العام لطرح الأسئلة العامة أو إرسال الصور والملفات في المحادثة الخاصة.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title" data-i18n="f4Title">تنسيق واضح للمعادلات</h3>
+              <p class="card-text" data-i18n="f4Text">
+                يعرض البوت الشرح بخطوات مرتبة ومعادلات واضحة وأقسام قابلة للتوسيع لتسهيل القراءة على الهاتف.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title" data-i18n="f5Title">دعم المجموعات الدراسية</h3>
+              <p class="card-text" data-i18n="f5Text">
+                يمكن استخدام البوت داخل المجموعات الدراسية المفعّلة عبر منشن @Kitabi_ai_bot أو بالرد المباشر على إحدى رسائله.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title" data-i18n="f6Title">تبديل الصف في أي وقت</h3>
+              <p class="card-text" data-i18n="f6Text">
+                يمكنك تغيير الصف الدراسي أو الانتقال إلى الوضع العام في أي لحظة عبر الأمر /set_grade.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="grades" class="section section-alt">
+        <div class="container">
+          <h2 class="section-title" data-i18n="gradesTitle">الصفوف والمراحل المشمولة</h2>
+          <p class="section-intro" data-i18n="gradesIntro">
+            اختر مرحلتك الدراسية عند بدء البوت لتحصل على إجابات مقيّدة بكتب صفك فقط:
+          </p>
+
+          <div class="stages-grid">
+            <article class="stage-card">
+              <div class="stage-header">
+                <h3 class="stage-title" data-i18n="stage1Title">المرحلة الابتدائية</h3>
+                <span class="stage-badge" data-i18n="stage1Badge">الصفوف 1 – 6</span>
+              </div>
+              <p class="stage-desc" data-i18n="stage1Desc">
+                الصف الأول، الثاني، الثالث، الرابع، الخامس، والسادس بمختلف موادهم المعتمدة.
+              </p>
+            </article>
+
+            <article class="stage-card">
+              <div class="stage-header">
+                <h3 class="stage-title" data-i18n="stage2Title">المرحلة الإعدادية</h3>
+                <span class="stage-badge" data-i18n="stage2Badge">الصفوف 7 – 9</span>
+              </div>
+              <p class="stage-desc" data-i18n="stage2Desc">
+                الصف السابع، الثامن، والتاسع الأساسي مع كتب الرياضيات والعلوم واللغات وغيرها.
+              </p>
+            </article>
+
+            <article class="stage-card">
+              <div class="stage-header">
+                <h3 class="stage-title" data-i18n="stage3Title">المرحلة الثانوية</h3>
+                <span class="stage-badge" data-i18n="stage3Badge">علمي وأدبي</span>
+              </div>
+              <p class="stage-desc" data-i18n="stage3Desc">
+                الأول الثانوي، الثاني الثانوي، والثالث الثانوي (البكالوريا) بكلا الفرعين العلمي والأدبي.
+              </p>
+            </article>
+
+            <article class="stage-card">
+              <div class="stage-header">
+                <h3 class="stage-title" data-i18n="stage4Title">الوضع العام</h3>
+                <span class="stage-badge" data-i18n="stage4Badge">عام</span>
+              </div>
+              <p class="stage-desc" data-i18n="stage4Desc">
+                للأسئلة العامة والشرح الإضافي خارج نطاق الكتب المدرسية المحددة، ويدعم النصوص والصور والصوت في الخاص.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="preview" class="section">
+        <div class="container">
+          <h2 class="section-title" data-i18n="previewTitle">لقطات من داخل البوت</h2>
+          <p class="section-intro" data-i18n="previewIntro">
+            صور حقيقية من محادثة كتابي AI على تيليغرام (اضغط على أي صورة للتكبير):
+          </p>
+
+          <div class="preview-grid">
+            <figure class="preview-card">
+              <button
+                class="preview-thumb-btn"
+                type="button"
+                data-lightbox-src="assets/picking-degree.jpg"
+              >
+                <img
+                  src="assets/picking-degree.jpg"
+                  alt="شاشة اختيار الصف الدراسي في بوت كتابي AI على تيليغرام"
+                  data-i18n-alt="p1Alt"
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                <h3 class="preview-caption-title" data-i18n="p1Title">
+                  1. اختيار الصف أو الوضع العام
+                </h3>
+                <p class="preview-caption-text" data-i18n="p1Text">
+                  تبدأ المحادثة بأمر /start لتختار صفك الدراسي من القائمة أو تنتقل إلى الوضع العام.
+                </p>
+              </figcaption>
+            </figure>
+
+            <figure class="preview-card">
+              <button
+                class="preview-thumb-btn"
+                type="button"
+                data-lightbox-src="assets/question%20and%20answer.jpg"
+              >
+                <img
+                  src="assets/question%20and%20answer.jpg"
+                  alt="مثال لسؤال حول التابع الأسي وإجابته مع ذكر اسم الكتاب وأرقام الصفحات"
+                  data-i18n-alt="p2Alt"
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                <h3 class="preview-caption-title" data-i18n="p2Title">
+                  2. سؤال وجواب موثّق بالصفحة
+                </h3>
+                <p class="preview-caption-text" data-i18n="p2Text">
+                  يعرض البوت الشرح والمعادلات مع أقسام تفصيلية ومصدر الإجابة من الكتاب وأرقام الصفحات.
+                </p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="links" class="section section-alt">
+        <div class="container">
+          <h2 class="section-title" data-i18n="linksTitle">الروابط الرسمية والتواصل</h2>
+          <p class="section-intro" data-i18n="linksIntro">
+            جميع روابط كتابي AI الرسمية لمتابعة التحديثات أو بدء المحادثة أو التواصل مع المطوّر:
+          </p>
+
+          <div class="links-grid">
+            <a
+              class="link-item"
+              href="https://t.me/Kitabi_ai_bot"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="link-item-main">
+                <span class="link-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M21.94 4.66a1.5 1.5 0 0 0-1.56-.22L2.88 11.7a1.5 1.5 0 0 0 .1 2.81l4.46 1.49 1.72 5.18a1.25 1.25 0 0 0 2.13.44l2.54-2.77 4.41 3.24a1.5 1.5 0 0 0 2.36-.91l2.84-14.9a1.5 1.5 0 0 0-.5-1.62ZM9.9 15.2l-.65 3.1-.96-2.89 9.57-7.17-7.96 6.96Z"
+                    />
+                  </svg>
+                </span>
+                <span>
+                  <span class="link-label" data-i18n="linkBotTitle">بوت كتابي AI على تيليغرام</span>
+                  <span class="link-handle">@Kitabi_ai_bot</span>
+                </span>
+              </span>
+              <span class="link-arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              class="link-item"
+              href="https://t.me/Kitabi_ai"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="link-item-main">
+                <span class="link-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 11a9 9 0 0 1 9 9" />
+                    <path d="M4 4a16 16 0 0 1 16 16" />
+                    <circle cx="5" cy="19" r="1.5" fill="currentColor" />
+                  </svg>
+                </span>
+                <span>
+                  <span class="link-label" data-i18n="linkChannelTitle">قناة كتابي AI الرسمية</span>
+                  <span class="link-handle">t.me/Kitabi_ai</span>
+                </span>
+              </span>
+              <span class="link-arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              class="link-item"
+              href="https://www.facebook.com/kitabiai/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="link-item-main">
+                <span class="link-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.5 1.6-1.5h1.6V5c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1V11H7.7v3h2.6v8h3.2Z"
+                    />
+                  </svg>
+                </span>
+                <span>
+                  <span class="link-label" data-i18n="linkFbTitle">صفحة فيسبوك</span>
+                  <span class="link-handle">facebook.com/kitabiai</span>
+                </span>
+              </span>
+              <span class="link-arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              class="link-item"
+              href="https://www.instagram.com/kitabiai/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="link-item-main">
+                <span class="link-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                  </svg>
+                </span>
+                <span>
+                  <span class="link-label" data-i18n="linkIgTitle">حساب إنستغرام</span>
+                  <span class="link-handle">@kitabiai</span>
+                </span>
+              </span>
+              <span class="link-arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              class="link-item"
+              href="https://t.me/Amjad_bakro"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="link-item-main">
+                <span class="link-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21a8 8 0 0 0-16 0" />
+                    <circle cx="12" cy="8" r="4" />
+                  </svg>
+                </span>
+                <span>
+                  <span class="link-label" data-i18n="linkDevTitle">مطوّر البوت (أمجد بكرو)</span>
+                  <span class="link-handle">@Amjad_bakro</span>
+                </span>
+              </span>
+              <span class="link-arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p style="margin: 0">
+          © <span id="year">2026</span>
+          <span data-i18n="footerCopy">كتابي AI — جميع الحقوق محفوظة.</span>
+        </p>
+
+        <div class="footer-links">
+          <span>
+            <span data-i18n="footerDevPrefix">تطوير:</span>
+            <a href="https://t.me/Amjad_bakro" target="_blank" rel="noopener noreferrer" data-i18n="footerDevName">أمجد بكرو</a>
+          </span>
+          <a href="https://t.me/Kitabi_ai_bot" target="_blank" rel="noopener noreferrer">@Kitabi_ai_bot</a>
+          <a href="https://t.me/Kitabi_ai" target="_blank" rel="noopener noreferrer">@Kitabi_ai</a>
+        </div>
+      </div>
+    </footer>
+
+    <dialog id="image-dialog" class="lightbox">
+      <div class="lightbox-bar">
+        <button id="lightbox-close" class="lightbox-close" type="button" data-i18n="closeDialog">
+          إغلاق
+        </button>
+      </div>
+      <img id="lightbox-img" class="lightbox-img" src="" alt="" />
+    </dialog>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
